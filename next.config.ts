@@ -1,8 +1,16 @@
 import type { NextConfig } from "next";
+import nextra from 'nextra'
+
+const withNextra = nextra({
+
+})
 
 const nextConfig: NextConfig = {
-  /* config options here */
   reactCompiler: true,
+  i18n: {
+    locales: ['en', 'es'],
+    defaultLocale: 'en',
+  }
 };
 
-export default nextConfig;
+export default withNextra(nextConfig);
