@@ -1,0 +1,126 @@
+import {Callout, Tabs} from "nextra/components";
+
+# Costos para Impresión FDM
+
+Debido a que la impresión FDM requiere maquinaria especializada y recursos externos, ofrecemos este servicio con costo.
+Queremos que te sientas completamente seguro con tu inversión, por lo que esta página explica detalladamente cómo calculamos nuestras tarifas y las opciones disponibles para obtener cotizaciones o descuentos.
+
+## Cómo solicitar una cotización
+
+La forma más rápida de comenzar es a través de [nuestro portal web](https://q.fxst.tech/fdm-printing), donde puedes configurar los ajustes de impresión y recibir una **cotización instantánea**.
+En caso de que nuestro servicio en línea no esté disponible, puedes enviar tus requisitos técnicos por correo electrónico a [quotes@fxst.tech](mailto:quotes@fxst.tech).
+
+<Callout type='important'>
+    Para mantener la eficiencia, priorizamos nuestro sistema automatizado.
+    Si el servicio web está operativo, por favor realiza tu solicitud a través de esa plataforma, ya que generalmente no emitimos cotizaciones vía correo electrónico cuando el sitio está activo.
+</Callout>
+
+---
+
+## Factores que determinan el costo
+
+Creemos en la transparencia total: sin cargos ocultos ni sorpresas.
+Aquí tienes un desglose de los factores que influyen en el precio final de tu proyecto:
+
+<Tabs items={['Materiales', 'Consumo de Energía', 'Desgaste de Máquina', 'Tarifas de Mano de Obra', 'Envío', 'Margen', 'Impuestos']}>
+    <Tabs.Tab>
+        Cada proyecto consume una cantidad específica de material.
+        Los precios varían según el tipo; por ejemplo, el PLA estándar es más económico que los materiales especializados como el Titanio.
+        Calculamos el costo del material ($Q_M$) utilizando la siguiente fórmula:
+
+        - **$Q_M$**: Costo total de material para el producto.
+        - **$W_p$**: Peso total del material utilizado (en kilogramos).
+        - **$P_m$**: Precio por kilogramo del material elegido.
+
+        ```math
+        Q_M = W_p \times P_m
+        ```
+
+        *Ejemplo: Si un material cuesta $20/kg y tu diseño utiliza 50g, el costo del material será de solo $1.00 ($20 \times 0.05$).*
+    </Tabs.Tab>
+
+    <Tabs.Tab>
+        Para mantener nuestras impresoras funcionando y las camas calientes a la temperatura ideal, contabilizamos la electricidad consumida durante la producción.
+        Las variables para este cálculo son:
+
+        - **$Q_E$**: Costo total de energía.
+        - **$P_E$**: Costo de energía local (por kWh).
+        - **$t_i$**: Tiempo de preparación de la máquina (ej. precalentamiento).
+        - **$t_p$**: Tiempo total de impresión activa.
+        - **$E_i$**: Tasa de consumo de energía durante la preparación (kW/h).
+        - **$E_p$**: Tasa de consumo de energía durante la operación (kW/h).
+
+        ```math
+        Q_E = P_E \times (E_i \times t_i + E_p \times t_p)
+        ```
+    </Tabs.Tab>
+
+    <Tabs.Tab>
+        Nuestras impresoras FDM son herramientas de alta precisión que requieren mantenimiento regular y reemplazo de piezas para asegurar que tus impresiones cumplan con nuestros estándares de calidad.
+        Para cubrir este desgaste natural, incluimos una pequeña tarifa de mantenimiento:
+
+        - **$Q_T$**: Costo total de desgaste de la máquina.
+        - **$t_p$**: Tiempo total de operación de la máquina (horas).
+        - **$P_T$**: Precio de compra original de la máquina.
+        - **$T_T$**: Vida útil esperada de la máquina (en años).
+        - **$R_R$**: Ratio de reparación (porcentaje estimado de mantenimiento sobre la inversión).
+
+        ```math
+        Q_T = \frac{P_T \times (1 + R_R)}{8766 \times T_T} \times t_p
+        ```
+    </Tabs.Tab>
+
+    <Tabs.Tab>
+        El talentoso equipo de FXST es el corazón de nuestro trabajo, y nos aseguramos de que reciban salarios justos y competitivos.
+
+        **Tarifas de Operación**
+        Esto cubre el tiempo que nuestro equipo dedica a preparar tus archivos, configurar la impresora y monitorear el proceso para garantizar la calidad.
+        - **$Q_O$**: Tarifa total del operador de máquina.
+        - **$t_O$**: Tiempo dedicado por el operador a tu trabajo específico (horas).
+        - **$w_O$**: Salario por hora del operador.
+
+        ```math
+        Q_O = w_O \times t_O
+        ```
+
+        **Tarifas de Diseño (CAD)**
+        Si requieres un diseño personalizado, se aplican nuestros servicios de CAD.
+        Debido a que la complejidad varía, un diseñador evaluará manualmente tus requisitos para proporcionar una estimación de tiempo fija.
+        - **$Q_C$**: Tarifa total de diseño CAD.
+        - **$t_C$**: Tiempo estimado dedicado por el diseñador al proyecto (horas).
+        - **$w_C$**: Salario por hora del diseñador.
+
+        ```math
+        Q_C = w_C \times t_C
+        ```
+    </Tabs.Tab>
+
+    <Tabs.Tab>
+        Las tarifas de envío se aplican siempre que una pieza terminada necesite ser entregada en tu ubicación.
+        Estos costos son determinados por la empresa de mensajería en lugar de FXST.
+        Los factores principales que influyen en estas tarifas son el peso total del paquete y sus dimensiones (tamaño).
+    </Tabs.Tab>
+
+    <Tabs.Tab>
+        Aunque las ganancias no son nuestro motor principal, aplicamos un **margen ** ($M$) sobre los costos calculados.
+        Este margen es vital para nuestra sostenibilidad y crecimiento, permitiéndonos:
+
+        - **Cubrir gastos** derivados de errores técnicos inesperados o accidentes.
+        - **Resurtir materiales** rápidamente para ofrecer una mayor variedad de colores y tipos.
+        - **Invertir en nueva maquinaria** para brindar opciones de impresión más rápidas y avanzadas.
+    </Tabs.Tab>
+
+    <Tabs.Tab>
+        Los impuestos son un costo obligatorio que debemos aplicar legalmente.
+        En México —la región actual para nuestros servicios de impresión FDM— aplicamos un **IVA del 16%** ($T$) a nuestros costos.
+    </Tabs.Tab>
+</Tabs>
+
+En última instancia, el precio es la suma de todos los costos multiplicada por el margen, más el envío, y finalmente con los impuestos aplicables:
+
+```math
+Q = T \times (M \times (Q_M + Q_E + Q_T + Q_O + Q_C) + Envío)
+```
+
+La mayor parte de este cálculo se realiza automáticamente a través de la calculadora en nuestro sitio web.
+Los pesos del material y los tiempos del operador son determinados por nuestro software de segmentación (slicing), lo que nos permite ofrecerte cotizaciones instantáneas y precisas.

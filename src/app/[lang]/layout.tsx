@@ -12,6 +12,7 @@ import { getPageMap } from 'nextra/page-map'
 import type { FC, ReactNode } from 'react'
 import { getDictionary, getDirection } from '@/app/dictionaries/get-dictionary'
 import './globals.css'
+import 'katex/dist/katex.min.css'
 
 export const metadata: Metadata = {
     description:

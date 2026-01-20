@@ -1,0 +1,120 @@
+import {Callout, Tabs} from "nextra/components";
+
+# Pricing for FDM Printing
+
+Because FDM printing requires specialized machinery and external resources, we offer this as a paid service. We want you to feel completely confident in your investment, so this page explains in detail how we calculate our rates and the options available for obtaining quotes or discounts.
+
+## How to Request a Quote
+
+The fastest way to get started is through [our web portal](https://q.fxst.tech/fdm-printing), where you can configure your print settings and receive an **instant quote**.
+
+In the event that our online service is unavailable, you can email your technical requirements to [quotes@fxst.tech](mailto:quotes@fxst.tech).
+
+<Callout type='important'>
+    To maintain efficiency, we prioritize our automated system. If the web service is operational, please complete your request through that platform, as we generally do not issue quotes via email when the site is active.
+</Callout>
+
+---
+
+## Factors Determining Cost
+
+We believe in total transparency: no hidden fees, no surprises. Here is a breakdown of the factors that influence the final price of your project:
+
+<Tabs items={['Materials', 'Energy Consumption', 'Machine Wear', 'Labor Fees', 'Shipping', 'Margin', 'Taxes']}>
+    <Tabs.Tab>
+        Each project consumes a specific amount of material. Prices vary by type; for example, standard PLA is more economical than specialized materials like Titanium.
+
+        We calculate the material cost ($Q_M$) using the following formula:
+
+        - **$Q_M$**: Total material cost for the product.
+        - **$W_p$**: Total weight of the material used (in kilograms).
+        - **$P_m$**: Price per kilogram of the chosen material.
+
+        ```math
+        Q_M = W_p \times P_m
+        ```
+
+        *Example: If a material costs $20/kg and your design uses 50g, the material cost will be only $1.00 ($20 \times 0.05$).*
+    </Tabs.Tab>
+
+    <Tabs.Tab>
+        To keep our printers running and heat beds at the ideal temperature, we account for the electricity consumed during production.
+
+        The variables for this calculation are:
+
+        - **$Q_E$**: Total energy cost.
+        - **$P_E$**: Local energy cost (per kWh).
+        - **$t_i$**: Machine preparation time (e.g., preheating).
+        - **$t_p$**: Total active printing time.
+        - **$E_i$**: Energy consumption rate during preparation (kW/h).
+        - **$E_p$**: Energy consumption rate during operation (kW/h).
+
+        ```math
+        Q_E = P_E \times (E_i \times t_i + E_p \times t_p)
+        ```
+    </Tabs.Tab>
+
+    <Tabs.Tab>
+        Our FDM printers are high-precision tools requiring regular maintenance and part replacement to ensure your prints meet our quality standards. To cover this natural wear and tear, we include a small maintenance fee:
+
+        - **$Q_T$**: Total machine wear cost.
+        - **$t_p$**: Total machine operation time (hours).
+        - **$P_T$**: Original purchase price of the machine.
+        - **$T_T$**: Expected lifespan of the machine (in years).
+        - **$R_R$**: Repair ratio (estimated maintenance percentage of the investment).
+
+        ```math
+        Q_T = \frac{P_T \times (1 + R_R)}{8766 \times T_T} \times t_p
+        ```
+    </Tabs.Tab>
+
+    <Tabs.Tab>
+        The talented FXST team is the heart of our work, and we ensure they receive fair and competitive wages.
+
+        **Operating Fees**
+        This covers the time our team spends preparing your files, setting up the printer, and monitoring the process to ensure quality.
+
+        - **$Q_O$**: Total machine operator fee.
+        - **$t_O$**: Time spent by the operator on your specific job (hours).
+        - **$w_O$**: Hourly wage of the operator.
+
+        ```math
+        Q_O = w_O \times t_O
+        ```
+
+        **Design Fees (CAD)**
+        If you require a custom design, our CAD services apply. Because complexity varies, a designer will manually evaluate your requirements to provide a fixed time estimate.
+
+        - **$Q_C$**: Total CAD design fee.
+        - **$t_C$**: Estimated time spent by the designer on the project (hours).
+        - **$w_C$**: Hourly wage of the designer.
+
+        ```math
+        Q_C = w_C \times t_C
+        ```
+    </Tabs.Tab>
+
+    <Tabs.Tab>
+        Shipping fees apply whenever a finished piece needs to be delivered to your location. These costs are determined by the shipping carrier rather than FXST. The primary factors influencing these rates are the package's total weight and dimensions (size).
+    </Tabs.Tab>
+
+    <Tabs.Tab>
+        While profit is not our primary driver, we apply a ** margin** ($M$) over calculated costs. This margin is vital for our sustainability and growth, allowing us to:
+
+        - **Cover expenses** from unexpected technical errors or accidents.
+        - **Restock materials** quickly to offer a wider variety of colors and types.
+        - **Invest in new machinery** to provide faster and more advanced printing options.
+    </Tabs.Tab>
+
+    <Tabs.Tab>
+        Taxes are a mandatory cost that we must legally apply. In Mexico—the current region for our FDM printing services—we apply a **16% tax** ($T$) to our costs.
+    </Tabs.Tab>
+</Tabs>
+
+Ultimately, the price is the sum of all costs multiplied by the margin, then plus shipping, and then with applicable taxes:
+
+```math
+Q = T \times (M \times (Q_M + Q_E + Q_T + Q_O + Q_C) + Shipping)
+```
+
+Most of this calculation is performed automatically through the calculator on our website. Material weights and operator times are determined by our model slicing software, which allows us to provide you with instant, accurate quotes.
